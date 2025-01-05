@@ -16,4 +16,7 @@ public interface CommentRepository extends MongoRepository<Comment,String> {
     Page<Comment> findByUserid(String userid, Pageable pageable);
 
     Page<Comment> findByContent(String content,Pageable pageable);
+
+    // 根据userId删除评论
+    void deleteByUserid(String userid);
 }

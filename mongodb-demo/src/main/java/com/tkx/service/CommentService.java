@@ -8,6 +8,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @Author tkx
@@ -51,6 +53,14 @@ public class CommentService {
         commentRepository.deleteById(id);
     }
 
+
+    public void deleteByUserid(String userid){
+        // Page<Comment> resultList = commentRepository.findByUserid(userid, PageRequest.of(0, 10000));
+        // Set<String> collect = resultList.stream().map(Comment::getId).collect(Collectors.toSet());
+        // commentRepository.deleteAllById(collect);
+
+        commentRepository.deleteByUserid(userid);
+    }
     /**
      * 查询所有评论
      *

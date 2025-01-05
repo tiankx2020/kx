@@ -97,11 +97,33 @@ public class TestController {
         // update.set(key,value)
         //递增$inc
         update.inc("likenum",1);
-
-
+        update.set("nickname","tkx");
         //参数1：查询对象
         //参数2：更新对象
-        //参数3：集合的名字或实体类的类型Comment.class
-        mongoTemplate.updateFirst(query,update,Comment.class);
+        //参数3：集合的名字或//查询条件
+        //         Query query = Query.query(Criteria.where("userid").is(userid));
+        //
+        //         //更新条件
+        //         Update update = new Update();
+        //
+        //         //局部更新，相当于$set
+        //         // update.set(key,value)
+        //         //递增$inc
+        //         update.inc("likenum",1);
+        //
+        //
+        //         //参数1：查询对象
+        //         //参数2：更新对象
+        //         //参数3：集合的名字或实体类的类型Comment.class
+        //         mongoTemplate.updateFirst(query,update,Comment.class);实体类的类型Comment.class
+        // mongoTemplate.updateFirst(query,update,Comment.class);
+        // 批量更新
+        mongoTemplate.updateMulti(query,update,Comment.class);
     }
+
+    @PostMapping(value = "deleteByUserid")
+    public void deleteByUserid(String userid){
+        commentService.deleteByUserid(userid);
+    }
+
 }
