@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -77,6 +78,12 @@ public class TestController {
 
     }
 
+    @PostMapping("/testFindCommentListByContent")
+    public void testFindCommentListByContent(@RequestParam(value = "content") String content){
+        Page<Comment> pageResponse =  commentService.findCommentListByContent(content,1,2);
+        System.out.println("---总记录数---:"+pageResponse.getTotalElements());
+        System.out.println("---当前页数据---:"+pageResponse.getContent());
+    }
     @PostMapping("/updateCommentLikeNum")
     public void updateCommentLikeNum(String userid){
 

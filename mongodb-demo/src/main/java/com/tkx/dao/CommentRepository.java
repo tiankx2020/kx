@@ -14,4 +14,6 @@ public interface CommentRepository extends MongoRepository<Comment,String> {
 
     //根据父id，查询子评论的分页列表
     Page<Comment> findByUserid(String userid, Pageable pageable);
+
+    Page<Comment> findByContent(String content,Pageable pageable);
 }

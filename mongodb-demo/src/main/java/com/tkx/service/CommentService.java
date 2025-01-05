@@ -83,5 +83,9 @@ public class CommentService {
         return commentRepository.findByUserid(userid, PageRequest.of(page-1,size));
     }
 
+    public Page<Comment> findCommentListByContent(String content,int page,int size){
+        return commentRepository.findByContent(content,PageRequest.of(page-1,size));
+    }
+
 }
 
