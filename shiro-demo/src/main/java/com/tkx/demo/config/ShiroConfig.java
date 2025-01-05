@@ -1,5 +1,6 @@
 package com.tkx.demo.config;
 
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import org.apache.shiro.realm.text.IniRealm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
@@ -15,7 +16,10 @@ import java.util.Map;
  **/
 @Configuration
 public class ShiroConfig {
-
+    @Bean
+    public ShiroDialect getShiroDialect(){
+        return new ShiroDialect();
+    }
     @Bean
     public IniRealm getIniRealm(){
         IniRealm iniRealm=new IniRealm("classpath:shiro.ini");
@@ -47,9 +51,9 @@ public class ShiroConfig {
         filterMap.put("/**","authc");
         filter.setFilterChainDefinitionMap(filterMap);
 
-        filter.setLoginUrl("/login.html");
+        filter.setLoginUrl("/templates/login.html");
         //设置未授权页面跳转到登录页面
-        filter.setUnauthorizedUrl("/login.html");
+        filter.setUnauthorizedUrl("/templates/login.html");
         return filter;
     }
 }
