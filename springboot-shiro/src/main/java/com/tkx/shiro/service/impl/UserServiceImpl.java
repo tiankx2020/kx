@@ -7,6 +7,8 @@ import com.tkx.shiro.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @Author tkx
  * @Date 2025 01 16 00 01
@@ -22,5 +24,15 @@ public class UserServiceImpl implements UserService {
         wrapper.eq("name",name);
         User user = userMapper.selectOne(wrapper);
         return user;
+    }
+
+    @Override
+    public List<String> getUserRoleInfo(String principal) {
+        return userMapper.getUserRoleInfoMapper(principal);
+    }
+
+    @Override
+    public List<String> getUserPermissionInfo(List<String> roles) {
+        return userMapper.getUserPermissionInfoMapper(roles);
     }
 }
