@@ -42,14 +42,13 @@ public class MyRealm extends AuthorizingRealm {
         List<String> roles = userService.getUserRoleInfo(principal);
         log.info("当前用户角色信息:"+roles);
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-
+        info.addRoles(roles);
         // 创建对象,存储当前对象的权限和角色
         if(roles!=null && roles.size()>0){
             List<String> permissions = userService.getUserPermissionInfo(roles);
             log.info("当前用户的权限信息--->"+permissions);
             info.addStringPermissions(permissions);
         }
-        info.addRoles(roles);
         return info;
     }
 
