@@ -19,7 +19,6 @@ import java.util.UUID;
  * @Author tkx
  * @Date 2024 11 24 19 11
  **/
-// 发送消息
 @RestController
 @RequestMapping("/tkx")
 @Slf4j
