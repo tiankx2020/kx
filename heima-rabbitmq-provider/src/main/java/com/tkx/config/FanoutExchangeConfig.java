@@ -8,9 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Author tkx
- * @Date 2024 11 25 22 56
- **/
+ * exchange接收到消息后，会转发到所有与它绑定的消息队列上
+ */
 @Configuration
 public class FanoutExchangeConfig {
 

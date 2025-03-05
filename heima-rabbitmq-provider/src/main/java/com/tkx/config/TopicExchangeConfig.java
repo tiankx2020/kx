@@ -8,9 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Author tkx
- * @Date 2024 11 25 23 16
- **/
+ * 主题交换机：使用routingKey去配置，匹配上了就转发，没有匹配上就不发 *匹配一些，#匹配一个或者多个
+ */
 @Configuration
 public class TopicExchangeConfig {
 

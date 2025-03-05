@@ -9,8 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 /**
- * @Author tkx
- * @Date 2024 11 24 18 51
+ * 直连交换机：直接与队列进行绑定。要求该消息与一个特定的路由键完全匹配
  **/
 @Configuration
 public class DirectExchangeConfig {
