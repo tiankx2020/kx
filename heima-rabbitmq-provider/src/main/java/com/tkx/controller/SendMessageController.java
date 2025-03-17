@@ -35,7 +35,7 @@ public class SendMessageController {
 
     @GetMapping("/sendDirectMessage")
     public String sendDirectMessage() throws InterruptedException {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1; i++) {
             String messageId = String.valueOf(UUID.randomUUID());
             String messageData = "test message, hello!";
             String createTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
@@ -74,7 +74,7 @@ public class SendMessageController {
         String exchange = CodeParam.CODE_FANOUT_EXCHANGE;
         // 扇形exchange,routingKey 随便填
         String routingKey = "xxx";
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1; i++) {
             String messageId = String.valueOf(UUID.randomUUID());
             String messageData = "send fanout message ";
             String createTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
@@ -93,8 +93,8 @@ public class SendMessageController {
     public String sendTopicMessage() throws InterruptedException {
         String exchange = CodeParam.CODE_TOPIC_EXCHANGE;
         // 扇形exchange,routingKey 随便填
-        String routingKey = "tkx.zzw";
-        for (int i = 0; i < 100; i++) {
+        String routingKey = "tkx.happy-zz";
+        for (int i = 0; i < 1; i++) {
             String messageId = String.valueOf(UUID.randomUUID());
             String messageData = "send topic message ";
             String createTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));

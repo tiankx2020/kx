@@ -20,10 +20,10 @@ public class FanoutExchangeConfig {
         return new Queue(CodeParam.CODE_QUEUE_3,true);
     }
 
-    @Bean
-    public Queue TestDirectQueue4(){
-        return new Queue(CodeParam.CODE_QUEUE_4,true);
-    }
+    // @Bean
+    // public Queue TestDirectQueue4(){
+    //     return new Queue(CodeParam.CODE_QUEUE_4,true);
+    // }
     @Bean
     public FanoutExchange TestFanoutExchange(){
         return new FanoutExchange(CodeParam.CODE_FANOUT_EXCHANGE,true,false);
@@ -32,12 +32,12 @@ public class FanoutExchangeConfig {
 
     // 绑定关系
     @Bean
-    Binding bindingFanout1() {
+    Binding bindingFanout3() {
         return BindingBuilder.bind(TestDirectQueue3()).to(TestFanoutExchange());
     }
 
-    @Bean
-    Binding bindingFanout2() {
-        return BindingBuilder.bind(TestDirectQueue4()).to(TestFanoutExchange());
-    }
+    // @Bean
+    // Binding bindingFanout4() {
+    //     return BindingBuilder.bind(TestDirectQueue4()).to(TestFanoutExchange());
+    // }
 }

@@ -19,10 +19,10 @@ public class TopicExchangeConfig {
         return new Queue(CodeParam.CODE_QUEUE_5,true);
     }
 
-    @Bean
-    public Queue TestDirectQueue6(){
-        return new Queue(CodeParam.CODE_QUEUE_6,true);
-    }
+    // @Bean
+    // public Queue TestDirectQueue6(){
+    //     return new Queue(CodeParam.CODE_QUEUE_6,true);
+    // }
 
     @Bean
     public TopicExchange TestTopicExchange(){
@@ -31,11 +31,11 @@ public class TopicExchangeConfig {
 
     @Bean
     Binding bindingFanout5() {
-        return BindingBuilder.bind(TestDirectQueue5()).to(TestTopicExchange()).with("tkx.happy");
+        return BindingBuilder.bind(TestDirectQueue5()).to(TestTopicExchange()).with("tkx.happy-zz");
     }
 
-    @Bean
-    Binding bindingFanout6() {
-        return BindingBuilder.bind(TestDirectQueue6()).to(TestTopicExchange()).with("tkx.#");
-    }
+    // @Bean
+    // Binding bindingFanout6() {
+    //     return BindingBuilder.bind(TestDirectQueue6()).to(TestTopicExchange()).with("tkx.#");
+    // }
 }

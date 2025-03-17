@@ -49,8 +49,4 @@ public class DirectExchangeConfig {
         return BindingBuilder.bind(TestDirectQueue2()).to(TestDirectExchange()).with(routingKey);
     }
 
-
-
-
-
 }
