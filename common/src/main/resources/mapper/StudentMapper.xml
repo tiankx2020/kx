@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tkx.mapper.StudentMapper">
+
+    <resultMap id="baseMap" type="com.tkx.pojo.Student">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="username" jdbcType="VARCHAR"/>
+        <result column="age" property="age" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="columns">
+        id,name,age
+    </sql>
+
+    <select id="getStudentList" resultType="com.tkx.pojo.Student" resultMap="baseMap">
+        select <include refid="columns"/>
+        from student  limit 100
+    </select>
+
+</mapper>
