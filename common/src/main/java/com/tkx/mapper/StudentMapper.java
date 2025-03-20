@@ -14,4 +14,6 @@ import java.util.List;
 public interface StudentMapper {
 
     public List<Student> getStudentList(StudentDTO dto);
+
+    public void save(Student student);
 }

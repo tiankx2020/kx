@@ -22,4 +22,9 @@ public class StudentImpl implements StudentInterface{
     public List<Student> getList(StudentDTO dto) {
         return studentMapper.getStudentList(dto);
     }
+
+    @Override
+    public void save(Student student) {
+        studentMapper.save(student);
+    }
 }

@@ -11,4 +11,6 @@ import java.util.List;
  **/
 public interface StudentInterface {
     public List<Student> getList(StudentDTO dto);
+
+    public void save(Student student);
 }
