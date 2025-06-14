@@ -2,6 +2,7 @@ package com.tkx.consumer;
 
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -14,6 +15,7 @@ import java.util.Map;
 // 消费消息
 @Component
 @RabbitListener(queues = "q1")
+@ConditionalOnProperty(name = "rabbitmq.config.q1.enabled", havingValue = "true",matchIfMissing = false)
 public class Q1Receiver {
     @RabbitHandler
     public void process(Map testMessage) {

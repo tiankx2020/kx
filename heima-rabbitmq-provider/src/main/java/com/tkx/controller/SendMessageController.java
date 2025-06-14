@@ -24,8 +24,8 @@ import java.util.UUID;
 @Slf4j
 public class SendMessageController {
 
-    private String exchangeName = CodeParam.CODE_DIRECT_EXCHANGE;
-    private String routingKey = CodeParam.CODE_DIRECT_ROUTING_KEY;
+    private String exchangeName = CodeParam.CODE_DIRECT_EXCHANGE+"1";
+    private String routingKey = CodeParam.CODE_DIRECT_ROUTING_KEY+"1";
 
 
     //使用RabbitTemplate,这提供了接收/发送等等方法
@@ -35,7 +35,7 @@ public class SendMessageController {
 
     @GetMapping("/sendDirectMessage")
     public String sendDirectMessage() throws InterruptedException {
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 100; i++) {
             String messageId = String.valueOf(UUID.randomUUID());
             String messageData = "test message, hello!";
             String createTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));

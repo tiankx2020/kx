@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.lang.reflect.Method;
+import java.security.Permission;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @Author tkx
@@ -61,4 +65,45 @@ public class LoggingAspect {
         }
         return null;
     }
+
+    public static void main(String[] args) {
+        String s = convertDateToBinary("2080-02-29");
+        System.out.println(s);
+    }
+    public static String convertDateToBinary(String date) {
+        StringBuilder sb = new StringBuilder();
+        String[] arr = date.split("-");
+        for (String s : arr) {
+            sb.append(tenToTwo(Integer.valueOf(s)));
+            sb.append("-");
+        }
+        return sb.toString().substring(0,sb.length()-1);
+    }
+
+    public static String tenToTwo(int x){
+        StringBuilder sb = new StringBuilder();
+        if(x==0){
+            sb.append(x);
+        }else{
+            while (x>0){
+                sb.append(x%2);
+                x/=2;
+            }
+        }
+
+        return sb.reverse().toString();
+    }
+
+    public int maxConsecutive(int bottom, int top, int[] special) {
+        int res = 0;
+        Arrays.sort(special);
+        for(int i=1;i<special.length;i++){
+            res = Math.max(res,special[i]-special[i-1]-1);
+        }
+        res = Math.max(res,special[0]-bottom);
+        res = Math.max(res,special[top-special.length-1]);
+        return res;
+
+    }
+
 }
